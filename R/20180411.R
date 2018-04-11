@@ -33,6 +33,8 @@ library(rgdal)
 cs2=CRS('+proj=utm +zone=51 +ellps=WGS84 +units=km')
 ll.sp2=spTransform(ll.sp,cs2)
 ll=data.frame(ll.sp2)
+
+
 ss=Line(ll)
 LineLength(ss)
 
@@ -40,6 +42,7 @@ LineLength(ss)
 library(openxlsx)
 setwd('C:/Users/qkdrk/Desktop/수업자료/지리공간정보_자료분석_엑셀자료')
 dd3<-read.xlsx('제3장(3-4).xlsx')
+head(dd3)
 dd3$`2010`
 dd3$Name
 
@@ -53,11 +56,11 @@ dd3$Name
 setwd('C:/Users/qkdrk/Desktop/aa')
 sp=readShapePoly('aa.shp')
 #추가한거
-setequal(t@data$SIG_KOR_NM,dd3$Name)
+setequal(sp@data$SIG_KOR_NM,dd3$Name)
 sp@data<-merge(sp@data,dd3,by.x='SIG_KOR_NM',by.y='Name',all=T)
 sp@data<-sp@data[order(as.numeric(as.character(sp@data$SP_ID))),]
 
-sp@data
+head(sp@data)
 xa=coordinates(sp)[,1]
 ya=coordinates(sp)[,2]
 da=cbind(dd3$`2010`,dd3$`2014`)
@@ -70,11 +73,11 @@ for(i in 1:length(xa)){
           size=c(0.1,0.5),vadj=0)
 }
 
-text(coordinates(sp),labels=sp$SIG_KOR_NM,cex=0.5)
+text(coordinates(sp),labels=sp$SIG_KOR_NM,cex=2)
 legend('bottomright',c('2010','2014'),bty='n',fill=cols,cex=0.8)
 
 
-###추가
+
 
 
 
