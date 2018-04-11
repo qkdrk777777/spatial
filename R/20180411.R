@@ -71,6 +71,8 @@ title('서울 자치구 재정자립도')
 for(i in 1:length(xa)){
   subplot(barplot(da[i,1],ylim=c(0,dm),col=cols[1],yaxt='n'),x=xa[i]-500,y=ya[i]+1000,
           size=c(0.1,0.5),vadj=0)
+  subplot(barplot(da[i,2],ylim=c(0,dm),col=cols[2],yaxt='n'),x=xa[i]+500,y=ya[i]+1000,
+          size=c(0.1,0.5),vadj=0)
 }
 
 text(coordinates(sp),labels=sp$SIG_KOR_NM,cex=2)
