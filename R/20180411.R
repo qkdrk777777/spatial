@@ -21,7 +21,7 @@ round(dist(data.frame(ll.sp2),method='euclidean'),3)
 round(dist(data.frame(ll.sp2),method='manhattan'),3)
 
 #(3)
-rm(list=ls()[26])
+
 
 library(sp)
 la=c(37.5124500,37.5059546,37.4964553,37.4958369,37.4900359,37.4823951,37.4812365,37.4781547)
