@@ -1,0 +1,40 @@
+---
+title: "공간통계"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F)
+library(raster)
+library(rasterVis)
+library(dismo)
+library(DUcj)
+library('rpart')
+library(spatial)
+
+```
+
+## 링크
+<http://rspatial.org/analysis/rst/9-remotesensing.html>
+
+```{r cars,echo=T}
+crs(b2)
+ncell(b2)
+res(b2)
+nlayers(b2)
+
+landsatRGB <- stack(b4,b3,b2)
+landsatFCC <- stack(b5,b4,b3)
+
+
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
